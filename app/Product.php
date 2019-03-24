@@ -6,11 +6,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class Product extends Model
 {
-     protected $table = 'productbestellingen';
+     protected $table = 'products';
     public $timestamps = false;
     protected $dates = ['timestamp'];
     // protected $dateFormat = 'U';
-    protected $fillable = ['timestamp, factuurnummer, omschrijving', 'aantal', 'prijsperstuk'];
+    protected $fillable = ['name, description'];
 
     public function factuurnummertje(){
            return $this->hasMany('App\Invoice', 'factuurnummer', 'factuurnummer');
