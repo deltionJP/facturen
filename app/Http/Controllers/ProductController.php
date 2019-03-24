@@ -15,24 +15,32 @@ class ProductController extends Controller
     }
     public function index(){
          $product = Product::all();
-         $invoice = Invoice::all();
-         return view('product', ['producten' => $product, 'facturen' => $invoice]);
+     //     $invoice = Invoice::all();
+         return view('product', ['producten' => $product]);
     }
     public function create(Request $request){
          $product = new Product;
-         $product->factuurnummer = $request->get('customer_id');
-         $product->omschrijving = $request->get('omschrijving');
-         $product->aantal = $request->get('aantal');
-         $product->prijsperstuk = $request->get('prijsperstuk');
+         $product->name = $request->get('product_name');
+         $product->description = $request->get('product_description');
          $product->timestamp = Carbon::now();
          $product->save();
 
          return redirect('/product')->with('status', 'Rekening is toegevoegd');
-    }
+     //   $product = new Product;
+     //     $product->factuurnummer = $request->get('customer_id');
+     //     $product->omschrijving = $request->get('omschrijving');
+     //     $product->aantal = $request->get('aantal');
+     //     $product->prijsperstuk = $request->get('prijsperstuk');
+     //     $product->timestamp = Carbon::now();
+     //     $product->save();
+
+     //     return redirect('/product')->with('status', 'Rekening is toegevoegd');
+     }
 
     public function delete($id){
+         dd('de');
          Product::where('id',$id)->delete();
-         return redirect('/product')->with('status', 'Rekening is verwijderd');
+         return redirect('/product')->with('status', 'Product is verwijderd');
     }
 
 }

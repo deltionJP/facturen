@@ -13,13 +13,11 @@ class CreateProductTable extends Migration
      */
     public function up()
     {
-        Schema::create('productbestellingen', function (Blueprint $table) {
+        Schema::create('products', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('name');
+            $table->string('description')->nullable();
             $table->timestamp('timestamp');
-            $table->bigInteger('factuurnummer');
-            $table->string('omschrijving');
-            $table->integer('aantal');
-            $table->integer('prijsperstuk');
         });
     }
 
@@ -30,6 +28,6 @@ class CreateProductTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('productbestellingen');
+        Schema::dropIfExists('products');
     }
 }
