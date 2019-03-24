@@ -30,3 +30,7 @@ Route::get('/downloadPDF/{factuurnummer}','InvoiceController@downloadPDF');
 Route::post('/product','ProductController@create')->name('product.create');
 // Route::delete('/product/delete/{id}','ProductController@delete')->name('product.delete');
 Route::get('/product','ProductController@index');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

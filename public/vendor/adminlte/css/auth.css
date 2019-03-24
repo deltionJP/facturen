@@ -1,0 +1,17 @@
+.auth-links {
+    margin-top: 10px;
+}
+.login-page,
+.register-page {
+    background:
+    /* top, transparent red, faked with gradient */
+    linear-gradient(rgba(192, 180, 180, 0.45),
+    rgba(230, 225, 225, 0.45)),
+    /* bottom, image */
+    url('../../../farm.jpg') no-repeat center center fixed;
+    /* background: url("../../../farm.jpg") no-repeat center center fixed rgba(255, 0, 0, 0.25);;
+    background-size: cover;
+    height: 100vh;
+    width: 100vw;*/
+    overflow: hidden; 
+}

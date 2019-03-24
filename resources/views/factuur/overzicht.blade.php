@@ -1,6 +1,59 @@
-@extends('layouts.master')
+@extends('adminlte::page')
+
+@section('title', 'Facturen')
+
+@section('content_header')
+    <h1>Factuur overzicht</h1>
+@stop
 
 @section('content')
+
+
+    <section class="content">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-12">
+                    <div class="card" style="">
+                        <div class="card-header">
+                            {{-- <h3 class="card-title">Bordered Table</h3> --}}
+                        </div>
+                        <div class="card-body">
+                            <table class="table table-bordered table-striped">
+                                <tr>
+                                    <th>#</th>
+                                    <th>#</th>
+                                    <th>Factuurdatum</th>
+                                    <th>Klant</th>
+                                    <th>Betaald?</th>
+                                    <th>Afdrukken</th>
+                                </tr>
+                                @foreach($facturen->sortByDesc('factuurdatum') as $factuur)
+                                    <tr>
+                                        <td><a href="{{ route('facturen.add_product', $factuur->factuurnummer) }}">Product toevoegen</a></td>
+                                        <td><a href="{{ route('facturen.edit', $factuur->factuurnummer) }}">Instellingen</a></td>
+                                        {{-- <td><a href="{{ route('zfacturen.edit', $factuur->factuurnummer) }}">{{$factuur->factuurnummer}}</td> --}}
+                                        <td>{{$factuur->factuurdatum}}</td>
+                                        <td>{{$factuur->hasCustomer->voorletter}}. {{$factuur->hasCustomer->achternaam}}</td>
+                                        @if($factuur->betaald == 0)
+                                            <td>Nee</td>
+                                        @else
+                                            <td>Ja</td>
+                                        @endif
+                                        <td><a href="{{action('InvoiceController@downloadPDF', $factuur->factuurnummer)}}">PDF</a></td>
+                                        {{-- <td><a href="{{route('facturen.pdf')}}">PDF</a></td> --}}
+                                    </tr>
+                                @endforeach
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+
+
+
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
@@ -84,4 +137,4 @@
         </div>
     </div>
 </div>
-@endsection
+@stop
