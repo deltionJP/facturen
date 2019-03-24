@@ -34,7 +34,7 @@ class UserSeeder extends Seeder
                 'lastname'  => $admin_name[1],
             ]);
             if (is_null($admin_user->password)) {
-                $admin_user->password = '';
+                $admin_user->password = '$2y$12$cFCqqZJ4dFy7smEH65fHT.Uqxo9Kp5tohWsFHQfLeHa2ch0JZcIXS';
             }
             $admin_user->save();
             $admin_user->assignRole($admin_role);
@@ -50,7 +50,7 @@ class UserSeeder extends Seeder
                 'lastname'  => $super_admin_name[1],
             ]);
             if (is_null($user->password)) {
-                $user->password = '';
+                $user->password = '$2y$12$cFCqqZJ4dFy7smEH65fHT.Uqxo9Kp5tohWsFHQfLeHa2ch0JZcIXS';
             }
             $user->save();
             $user->assignRole($super_admin);

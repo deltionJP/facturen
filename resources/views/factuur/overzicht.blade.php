@@ -10,6 +10,7 @@
                 <div class="card-body">
                      <table class="table table-striped">
                             <thead>
+                            <th></th>
                             <th>Instellingen</th>
                             <th>Factuurnummer</th>
                             <th>Naam</th>
@@ -20,7 +21,8 @@
                             <tbody>
                             @foreach($facturen->sortByDesc('factuurdatum') as $factuur)
                                 <tr>
-                                     <td><a href="{{ route('facturen.edit', $factuur->factuurnummer) }}">Instellingen</a></td>
+                                    <td><a href="{{ route('facturen.add_product', $factuur->factuurnummer) }}">Product toevoegen</a></td>
+                                    <td><a href="{{ route('facturen.edit', $factuur->factuurnummer) }}">Instellingen</a></td>
 
                                     {{-- <td><a href="{{ route('zfacturen.edit', $factuur->factuurnummer) }}">{{$factuur->factuurnummer}}</td> --}}
                                     <td>{{$factuur->factuurdatum}}</td>
