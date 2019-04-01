@@ -90,7 +90,16 @@
 
             <!-- sidebar: style can be found in sidebar.less -->
             <section class="sidebar">
-
+                <!-- Sidebar user panel -->
+                <div class="user-panel">
+                    <div class="pull-left image">
+                        <img src="http://icons.iconarchive.com/icons/paomedia/small-n-flat/512/user-male-icon.png" class="img-circle" alt="User Image">
+                    </div>
+                    <div class="pull-left info">
+                        <p>{{Auth::user()->firstname}} {{Auth::user()->lastname}}</p>
+                        <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
+                    </div>
+                </div>
                 <!-- Sidebar Menu -->
                 <ul class="sidebar-menu" data-widget="tree">
                     @each('adminlte::partials.menu-item', $adminlte->menu(), 'item')
