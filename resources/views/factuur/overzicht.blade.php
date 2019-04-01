@@ -49,48 +49,43 @@
                          </div>
                     </div>
                 </div>
-                 <div class="col-md-3" style="background-color: #fff; color: black; margin-left: 10px;">
+                <div class="col-md-3" style="background-color: #fff; color: black; margin-left: 10px;">
                     <div class="card" style="">
                         <div class="card-header">
                             <h3 class="card-title">Factuur toevoegen</h3>
                         </div>
                         <div class="card-body">
-                            <div class="card-body">
-                     <form method="post" action="{{route('facturen.create')}}">
-                         @csrf
-                         <div class="form-group row">
-                            <div class="col-md-8">
-                                 <select class="form-control" name="customer_id" id="customer_id">
-                                     @if($customers->count() > 0)
-                                         @foreach($customers as $customer)
-
-                                         <option value="{{$customer->customer_id}}">{{$customer->achternaam}}</option>
-                                         @endForeach
-                                         @else
-                                         Geen klanten gevonden
-                                         @endif
-                                 </select>
-
-                                 @if ($errors->has('customer_id'))
-                                 <span class="invalid-feedback" role="alert">
-                                     <strong>{{ $errors->first('customer_id') }}</strong>
-                                 </span>
-                                 @endif
-                            </div>
-                         </div>
-                         <div class="form-group row">
-                            <div class="col-md-8">
-                                 <button type="submit" class="btn btn-success">Bestelling toevoegen</button>
-                            </div>
-                         </div>
-                     </form>
-
-                 </div>
-                         </div>
+                             <form method="post" action="{{route('facturen.create')}}">
+                             @csrf
+                                <div class="form-group row">
+                                    <div class="col-md-8">
+                                        <select class="form-control" name="customer_id" id="customer_id">
+                                            @if($customers->count() > 0)
+                                                @foreach($customers as $customer)
+                                                    <option value="{{$customer->customer_id}}">{{$customer->achternaam}}</option>
+                                                 @endForeach
+                                            @else
+                                                Geen klanten gevonden
+                                            @endif
+                                        </select>
+                                        @if ($errors->has('customer_id'))
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $errors->first('customer_id') }}</strong>
+                                            </span>
+                                        @endif
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <div class="col-md-8">
+                                        <button type="submit" class="btn btn-success">Bestelling toevoegen</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
                     </div>
-                </div>  
-            </div>
-        {{-- </div> --}}
+                </div>
+            </div>  
+       </div>
     </section>
 
 

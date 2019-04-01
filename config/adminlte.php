@@ -1,6 +1,7 @@
 <?php
 
 return [
+    'credits' => 'Powered By: <a target="_blank" href="mailto:info@jordiepasman.nl">Developer</a>',
 
     /*
     |--------------------------------------------------------------------------
