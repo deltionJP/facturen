@@ -18,8 +18,8 @@ class InvoiceController extends Controller
         $this->middleware('auth');
     }
     public function index(){
-         $factuur = Invoice::all();
-         $customer = Customer::all();
+        $factuur = Invoice::all();
+        $customer = Customer::all();
         return view('factuur.overzicht', ['facturen' => $factuur, 'customers' => $customer]);
     }
 
@@ -35,25 +35,24 @@ class InvoiceController extends Controller
     }
     public function edit($factuurnummer){
         $invoice = Invoice::find($factuurnummer);
-        // $producten = Product::all();
-        // $producten = Product::find($factuurnummer);
-        // dd($invoice);
         return view('factuur.edit', compact('invoice'));
     }
 
     public function addInvoiceProduct($factuurnummer) {
         $invoice = Invoice::find($factuurnummer);
         $orders = InvoiceOrder::where('factuurnummer',$factuurnummer)->get();
-        // dd($orders);
         return view('factuur.product', compact('invoice', 'orders'));
     }
 
     public function downloadPDF($factuurnummer){
         $factuur = Invoice::where('factuurnummer', $factuurnummer)->get()->first();
-        $orders = Product::where('factuurnummer', $factuurnummer)->get();
-        $customer = Customer::where('klantnummer');
+        $orders = InvoiceOrder::where('factuurnummer', $factuurnummer)->get();
+        $products = Product::all();
+        // dd($factuur);
+        // $orders = Product::where('factuurnummer', $factuurnummer)->get();
+        // $customer = Customer::where('klantnummer');
         
-        $pdf = PDF::loadView('pdf', ['factuur'=> $factuur, 'orders' => $orders]);
+        $pdf = PDF::loadView('pdf', ['factuur'=> $factuur, 'orders' => $orders, 'products' => $products]);
         return $pdf->download('invoice.pdf');
     }
 }

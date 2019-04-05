@@ -15,6 +15,6 @@ class InvoiceOrder extends Model
             return $this->hasOne('App\Customer', 'customer_id', 'customer_id');
      }
      public function hasInvoice(){
-         return $this->hasOne('App\Invoice', 'factuurnummer','factuurnummer');
+         return $this->hasMany('App\Invoice', 'factuurnummer','factuurnummer');
      }
 }
