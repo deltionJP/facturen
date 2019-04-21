@@ -69,10 +69,10 @@
                                             @endif
                                         </select>
                                         @if ($errors->has('customer_id'))
-                                            <span class="invalid-feedback" role="alert">
-                                                <strong>{{ $errors->first('customer_id') }}</strong>
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $errors->first('customer_id') }}</strong>
                                             </span>
-                                        @endif
+                                            @endif
                                     </div>
                                 </div>
                                 <div class="form-group row">
@@ -85,11 +85,12 @@
                     </div>
                 </div>
             </div>  
-       </div>
+        </div>
     </section>
-
-
-
+    
+    @stop
+    
+    
 
 
 {{-- <div class="container">
@@ -173,4 +174,3 @@
         </div>
     </div>
 </div> --}}
-@stop

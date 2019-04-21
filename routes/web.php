@@ -19,6 +19,7 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/facturen','InvoiceController@index');
+Route::get('/customers','CustomerController@index');
 Route::get('/','InvoiceController@index');
 Route::post('/facturen/create','InvoiceController@createInvoice')->name('facturen.create');
 Route::get('/facturen/{factuurnummer}/edit','InvoiceController@edit')->name('facturen.edit');
